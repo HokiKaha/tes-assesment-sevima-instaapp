@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\KomentarApiController;
 use App\Http\Controllers\api\PostinganApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,11 @@ Route::prefix('/postingan')->group(function() {
     Route::post('/', [PostinganApiController::class, 'store']);
     Route::patch('/{id}', [PostinganApiController::class, 'update']);
     Route::delete('/take-down/{id}', [PostinganApiController::class, 'takeDown']);
+});
+
+Route::prefix('/komentar')->group(function() {
+    Route::get('/', [KomentarApiController::class, 'index']);
+    Route::post('/', [KomentarApiController::class, 'store']);
+    Route::patch('/{id}', [KomentarApiController::class, 'update']);
+    Route::delete('/{id}', [KomentarApiController::class, 'destroy']);
 });
