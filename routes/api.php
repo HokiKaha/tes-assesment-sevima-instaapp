@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\FollowerApiController;
 use App\Http\Controllers\api\KomentarApiController;
 use App\Http\Controllers\api\LikeApiController;
 use App\Http\Controllers\api\PostinganApiController;
@@ -40,4 +41,11 @@ Route::prefix('/like')->group(function() {
     Route::get('/{postingan_id}', [LikeApiController::class, 'index']);
     Route::post('/', [LikeApiController::class, 'store']);
     Route::delete('/{id}', [LikeApiController::class, 'destroy']);
+});
+
+Route::prefix('/follower')->group(function() {
+    Route::get('/{user_id}', [FollowerApiController::class, 'getFollower']);
+    Route::get('/following/{user_id}', [FollowerApiController::class, 'getFollowing']);
+    Route::post('/', [FollowerApiController::class, 'store']);
+    Route::delete('/{id}', [FollowerApiController::class, 'destroy']);
 });

@@ -37,7 +37,7 @@ class KomentarApiController extends Controller
     }
 
     /**
-     * Take Down Postingan the specified resource from storage.
+     * destroy the specified resource from storage.
      */
     public function destroy(string $id): Response
     {

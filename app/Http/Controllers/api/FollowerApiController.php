@@ -3,18 +3,27 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Services\LikeService;
+use App\Services\FollowerService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class LikeApiController extends Controller
+class FollowerApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(string $postinganId): Response
+    public function getFollower(string $postinganId): Response
     {
-        $service = LikeService::get($postinganId);
+        $service = FollowerService::getFollower($postinganId);
+        return response($service);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function getFollowing(string $postinganId): Response
+    {
+        $service = FollowerService::getFollowing($postinganId);
         return response($service);
     }
 
@@ -23,7 +32,7 @@ class LikeApiController extends Controller
      */
     public function store(Request $request): Response
     {
-        $service = LikeService::store($request->all());
+        $service = FollowerService::store($request->all());
         return response($service);
     }
 
@@ -32,7 +41,7 @@ class LikeApiController extends Controller
      */
     public function destroy(string $id): Response
     {
-        $service = LikeService::destroy($id);
+        $service = FollowerService::destroy($id);
         return response($service);
     }
 }
