@@ -6,14 +6,14 @@ use App\Models\PostinganKomentar;
 
 class KomentarRepository
 {
-    public static function getAll()
+    public static function getByPostingan($posinganId)
     {
-        return PostinganKomentar::all();
+        return PostinganKomentar::where('postingan_id', $posinganId)->get();
     }
 
     public static function create($input)
     {
-        return PostinganKomentar::insert($input);
+        return PostinganKomentar::create($input);
     }
 
     public static function update($id, $input)

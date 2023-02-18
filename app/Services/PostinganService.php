@@ -6,17 +6,10 @@ use App\Repositories\PostinganRepository;
 
 class PostinganService
 {
-    public static function get()
+    public static function get($id = null)
     {
         return [
-            'data' => PostinganRepository::getAll()
-        ];
-    }
-
-    public static function getShow($id)
-    {
-        return [
-            'data' => PostinganRepository::detail($id)
+            'data' => PostinganRepository::get($id)
         ];
     }
 

@@ -13,4 +13,14 @@ class Postingan extends Model
         'user_id',
         'deskripsi'
     ];
+
+    public function komentars()
+    {
+        return $this->hasMany(PostinganKomentar::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(PostinganLike::class);
+    }
 }

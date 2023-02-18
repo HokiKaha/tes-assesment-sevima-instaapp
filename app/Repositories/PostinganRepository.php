@@ -6,9 +6,12 @@ use App\Models\Postingan;
 
 class PostinganRepository
 {
-    public static function getAll()
+    public static function get($id = null)
     {
-        return Postingan::all();
+        $getDatat = Postingan::withCount(['likes'])->with(['komentars']);
+        if (! is_null($id)) $getDatat->where('id', $id);
+
+        return $getDatat->get();
     }
 
     public static function detail($id)
@@ -18,7 +21,7 @@ class PostinganRepository
 
     public static function create($input)
     {
-        return Postingan::insert($input);
+        return Postingan::create($input);
     }
 
     public static function update($id, $input)

@@ -32,7 +32,7 @@ class PostinganApiController extends Controller
      */
     public function show(string $id): Response
     {
-        $service = PostinganService::getShow($id);
+        $service = PostinganService::get($id);
         return response($service);
     }
 

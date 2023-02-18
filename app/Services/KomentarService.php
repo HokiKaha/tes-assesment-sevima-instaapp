@@ -6,10 +6,10 @@ use App\Repositories\KomentarRepository;
 
 class KomentarService
 {
-    public static function get()
+    public static function get($posinganId)
     {
         return [
-            'data' => KomentarRepository::getAll()
+            'data' => KomentarRepository::getByPostingan($posinganId)
         ];
     }
 

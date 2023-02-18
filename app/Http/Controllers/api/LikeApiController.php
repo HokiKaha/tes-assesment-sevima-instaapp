@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Services\KomentarService;
+use App\Services\LikeService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class KomentarApiController extends Controller
+class LikeApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(string $postinganId): Response
     {
-        $service = KomentarService::get($postinganId);
+        $service = LikeService::get($postinganId);
         return response($service);
     }
 
@@ -23,16 +23,7 @@ class KomentarApiController extends Controller
      */
     public function store(Request $request): Response
     {
-        $service = KomentarService::store($request->all());
-        return response($service);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id): Response
-    {
-        $service = KomentarService::update($id, $request->all());
+        $service = LikeService::store($request->all());
         return response($service);
     }
 
@@ -41,7 +32,7 @@ class KomentarApiController extends Controller
      */
     public function destroy(string $id): Response
     {
-        $service = KomentarService::destroy($id);
+        $service = LikeService::destroy($id);
         return response($service);
     }
 }

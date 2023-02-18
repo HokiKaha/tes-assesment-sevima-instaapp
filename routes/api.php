@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\KomentarApiController;
+use App\Http\Controllers\api\LikeApiController;
 use App\Http\Controllers\api\PostinganApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,14 @@ Route::prefix('/postingan')->group(function() {
 });
 
 Route::prefix('/komentar')->group(function() {
-    Route::get('/', [KomentarApiController::class, 'index']);
+    Route::get('/{postingan_id}', [KomentarApiController::class, 'index']);
     Route::post('/', [KomentarApiController::class, 'store']);
     Route::patch('/{id}', [KomentarApiController::class, 'update']);
     Route::delete('/{id}', [KomentarApiController::class, 'destroy']);
+});
+
+Route::prefix('/like')->group(function() {
+    Route::get('/{postingan_id}', [LikeApiController::class, 'index']);
+    Route::post('/', [LikeApiController::class, 'store']);
+    Route::delete('/{id}', [LikeApiController::class, 'destroy']);
 });
