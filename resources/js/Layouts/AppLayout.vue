@@ -42,14 +42,20 @@ const logout = () => {
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <ApplicationMark class="block h-9 w-auto" />
+                                    <img src="/assets/images/logo-64x64.png" width="40" height="40" class="mr-3" alt="Logo">
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Beranda
+                                </NavLink>
+                                <NavLink :href="route('profile')" :active="route().current('profile')">
+                                    Teman
+                                </NavLink>
+                                <NavLink :href="route('profile.show')" :active="route().current('profile.show')">
+                                    Profil Saya
                                 </NavLink>
                             </div>
                         </div>

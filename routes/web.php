@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,6 +32,12 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('DashboardOriginal');
     })->name('dashboard');
 });
+
+
+Route::get('/template', [DashboardController::class, 'index'])->name('template');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+Route::get('/user/profile/timeline', [ProfileController::class, 'index'])->name('profile');
