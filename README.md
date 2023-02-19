@@ -1,13 +1,13 @@
 Instalasi
 
 buka terminal dan arahkan ke direktori project
-composer install
-npm install
-php artisan migrate
-php artisan server
+- composer install
+- npm install
+- php artisan migrate
+- php artisan server
 
 buka terminal lain dan arahkan ke direktori project
-npm run dev
+- npm run dev
 
 
 
